@@ -1,60 +1,741 @@
-隐私政策
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
 
-更新日期：2026年6月18日
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-本隐私政策适用于“应用名称”（以下简称“本应用”）。
+    <meta
+        name="description"
+        content="AI 即刻字幕隐私政策，说明应用如何处理音频、字幕、翻译结果及相关数据。"
+    >
 
-一、应用功能
+    <meta
+        name="robots"
+        content="index, follow"
+    >
 
-本应用提供实时语音识别、字幕显示及翻译功能。为了实现相关功能，本应用可能请求麦克风、音频捕获、网络访问和通知等权限。
+    <title>隐私政策 - AI 即刻字幕</title>
 
-二、音频数据
+    <style>
+        :root {
+            color-scheme: light dark;
 
-本应用可能访问麦克风音频或由用户主动授权捕获的设备播放音频，用于生成实时字幕。
+            --background: #ffffff;
+            --surface: #f7f8fa;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --border: #dadce0;
+            --link: #1769e0;
+            --notice-background: #eef5ff;
+            --notice-border: #1769e0;
+        }
 
-在本地识别模式下，音频数据仅在用户设备上进行处理，不会上传至开发者服务器。
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #121212;
+                --surface: #1d1d1d;
+                --text-primary: #f1f3f4;
+                --text-secondary: #bdc1c6;
+                --border: #3c4043;
+                --link: #8ab4f8;
+                --notice-background: #17233a;
+                --notice-border: #8ab4f8;
+            }
+        }
 
-除非用户主动启用相关功能，本应用不会长期保存音频内容。停止字幕功能后，临时音频数据将被清除。
+        * {
+            box-sizing: border-box;
+        }
 
-三、模型下载与网络访问
+        html {
+            scroll-behavior: smooth;
+        }
 
-本应用可能通过网络下载语音识别模型、翻译模型或必要的应用资源。下载过程中，资源提供方可能接收到常规网络信息，例如 IP 地址、设备类型和请求时间。
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--text-primary);
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "PingFang SC",
+                "Hiragino Sans GB",
+                "Microsoft YaHei",
+                Arial,
+                sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+        }
 
-四、第三方服务
+        main {
+            width: min(920px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 48px 0 80px;
+        }
 
-本应用可能使用以下第三方服务：
+        header {
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
 
-1. Google Play Billing，用于处理应用内购买。
-2. Google Mobile Ads，用于展示激励广告。
-3. Google ML Kit，用于提供端侧翻译能力。
-4. Google Play 服务，用于应用分发、更新及相关功能。
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(32px, 6vw, 48px);
+            line-height: 1.25;
+        }
 
-这些第三方服务可能根据其自身隐私政策处理设备信息、广告标识符、购买信息、诊断数据或其他必要信息。
+        h2 {
+            margin-top: 42px;
+            margin-bottom: 14px;
+            font-size: 24px;
+            line-height: 1.4;
+        }
 
-五、数据共享
+        h3 {
+            margin-top: 26px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
 
-开发者不会出售用户的个人数据。
+        p {
+            margin: 12px 0;
+        }
 
-除实现应用功能、履行法律义务或使用上述第三方服务所必需的情况外，开发者不会向第三方披露用户数据。
+        ul {
+            padding-left: 24px;
+        }
 
-六、数据安全
+        li {
+            margin: 8px 0;
+        }
 
-我们采取合理的技术和管理措施保护相关数据，尽量减少不必要的数据访问、存储和传输。
+        a {
+            color: var(--link);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
 
-七、数据保留与删除
+        .meta {
+            margin: 0;
+            color: var(--text-secondary);
+        }
 
-本地生成的字幕、设置和其他数据由用户设备保存。用户可以通过应用内删除功能、清除应用数据或卸载应用删除这些信息。
+        .summary {
+            margin-top: 28px;
+            padding: 20px 22px;
+            border-left: 4px solid var(--notice-border);
+            border-radius: 8px;
+            background: var(--notice-background);
+        }
 
-开发者不在自有服务器上长期保存用户的音频内容。
+        .summary p:first-child {
+            margin-top: 0;
+        }
 
-八、儿童隐私
+        .summary p:last-child {
+            margin-bottom: 0;
+        }
 
-本应用并非专门面向儿童设计。我们不会故意收集儿童的个人信息。
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
 
-九、政策变更
+        table {
+            width: 100%;
+            min-width: 680px;
+            border-collapse: collapse;
+        }
 
-本隐私政策可能随应用功能或法律要求发生变化。更新后的政策将在本页面公布。
+        th,
+        td {
+            padding: 14px;
+            border: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
 
-十、联系我们
+        th {
+            background: var(--surface);
+        }
 
-开发者名称：AVGAIGROUP
+        .contact-card {
+            margin-top: 16px;
+            padding: 20px 22px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--surface);
+        }
+
+        .contact-card p {
+            margin: 6px 0;
+        }
+
+        footer {
+            margin-top: 56px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<main>
+    <header>
+        <h1>隐私政策</h1>
+
+        <p class="meta">
+            应用名称：AI 即刻字幕
+        </p>
+
+        <p class="meta">
+            开发者：AVGAIGROUP
+        </p>
+
+        <p class="meta">
+            生效日期：2026年6月18日
+        </p>
+
+        <p class="meta">
+            最近更新日期：2026年6月18日
+        </p>
+    </header>
+
+    <section class="summary">
+        <p>
+            <strong>隐私说明摘要</strong>
+        </p>
+
+        <p>
+            AI 即刻字幕主要在用户设备本地完成音频处理、语音识别、
+            字幕显示和翻译。
+        </p>
+
+        <p>
+            在本地识别模式下，开发者不会将用户的原始音频上传至
+            AVGAIGROUP 自有服务器。
+        </p>
+
+        <p>
+            本应用可能使用 Google Play Billing、Google Mobile Ads、
+            Google ML Kit 和 Google Play 服务等第三方服务。
+            第三方服务可能根据其自身隐私政策处理必要的设备、网络、
+            购买、广告或诊断信息。
+        </p>
+    </section>
+
+    <section>
+        <h2>一、适用范围</h2>
+
+        <p>
+            本隐私政策适用于由 AVGAIGROUP 提供的“AI 即刻字幕”
+            应用及其相关功能。
+        </p>
+
+        <p>
+            本政策说明本应用如何访问、处理、存储、共享和保护用户数据，
+            以及用户如何管理或删除相关数据。
+        </p>
+    </section>
+
+    <section>
+        <h2>二、本应用提供的功能</h2>
+
+        <p>AI 即刻字幕可能提供以下功能：</p>
+
+        <ul>
+            <li>麦克风音频采集；</li>
+            <li>设备内部播放音频捕获；</li>
+            <li>实时语音识别；</li>
+            <li>实时字幕显示；</li>
+            <li>字幕翻译；</li>
+            <li>语音识别模型或翻译语言包下载；</li>
+            <li>应用内购买；</li>
+            <li>激励广告或其他广告功能；</li>
+            <li>字幕、设置或语言偏好的本地保存。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>三、本应用可能处理的数据</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                    <th>数据类型</th>
+                    <th>处理目的</th>
+                    <th>处理方式</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>麦克风音频</td>
+                    <td>生成实时语音识别结果和字幕</td>
+                    <td>主要在用户设备本地处理</td>
+                </tr>
+
+                <tr>
+                    <td>设备播放音频</td>
+                    <td>为视频、音乐、会议或其他媒体内容生成字幕</td>
+                    <td>仅在用户主动授权后捕获，并主要在本地处理</td>
+                </tr>
+
+                <tr>
+                    <td>字幕和翻译结果</td>
+                    <td>显示、复制、保存或翻译字幕</td>
+                    <td>主要在用户设备本地处理和保存</td>
+                </tr>
+
+                <tr>
+                    <td>应用设置</td>
+                    <td>保存语言、显示样式、模型选择等偏好</td>
+                    <td>保存在用户设备本地</td>
+                </tr>
+
+                <tr>
+                    <td>网络和下载信息</td>
+                    <td>下载语音识别模型、翻译模型或语言包</td>
+                    <td>
+                        资源服务提供方可能接收到 IP 地址、
+                        请求时间和常规网络信息
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>购买信息</td>
+                    <td>处理应用内购买、买断资格或其他付费权益</td>
+                    <td>由 Google Play Billing 等第三方服务处理</td>
+                </tr>
+
+                <tr>
+                    <td>广告相关信息</td>
+                    <td>展示广告、激励广告和防止广告欺诈</td>
+                    <td>可能由 Google Mobile Ads 等第三方服务处理</td>
+                </tr>
+
+                <tr>
+                    <td>诊断和崩溃信息</td>
+                    <td>排查故障、提升稳定性和性能</td>
+                    <td>仅在应用集成相关诊断功能时处理</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h2>四、音频数据的处理</h2>
+
+        <h3>1. 麦克风音频</h3>
+
+        <p>
+            当用户启用麦克风字幕功能时，本应用会请求麦克风权限，
+            并访问麦克风输入，以生成实时语音识别结果和字幕。
+        </p>
+
+        <p>
+            用户可以拒绝或撤销麦克风权限。拒绝或撤销后，
+            与麦克风有关的字幕功能将无法正常使用，
+            但不会影响不依赖麦克风的其他功能。
+        </p>
+
+        <h3>2. 设备内部音频</h3>
+
+        <p>
+            当用户主动启用设备音频捕获功能时，本应用可能通过
+            Android 系统提供的媒体投屏或音频捕获机制，
+            访问设备正在播放的音频。
+        </p>
+
+        <p>
+            设备内部音频捕获需要用户主动授权。
+            本应用不会在用户未授权的情况下自动捕获设备播放内容。
+        </p>
+
+        <h3>3. 本地处理</h3>
+
+        <p>
+            在本地语音识别模式下，音频数据主要在用户设备上完成处理，
+            用于生成实时字幕。
+        </p>
+
+        <p>
+            AVGAIGROUP 不会将本地识别模式下的原始音频上传至
+            自有服务器。
+        </p>
+
+        <h3>4. 音频保存</h3>
+
+        <p>
+            除非用户主动启用录音、音频导出或音频保存功能，
+            本应用不会长期保存原始音频。
+        </p>
+
+        <p>
+            临时音频缓冲仅用于完成当前语音识别任务，
+            并会在处理完成、字幕服务停止或应用退出后释放。
+        </p>
+    </section>
+
+    <section>
+        <h2>五、字幕和翻译数据</h2>
+
+        <p>
+            语音识别生成的字幕和翻译结果主要在用户设备上处理和显示。
+        </p>
+
+        <p>
+            如果本应用提供字幕复制、导出、保存或历史记录功能，
+            相关数据可能保存在用户设备本地。
+        </p>
+
+        <p>
+            用户可以通过应用内功能、删除本地文件、
+            清除应用数据或卸载应用删除这些内容。
+        </p>
+
+        <p>
+            在使用 Google ML Kit 等端侧翻译服务时，
+            翻译模型可能通过网络下载至用户设备，
+            并在用户设备本地执行翻译。
+        </p>
+    </section>
+
+    <section>
+        <h2>六、网络访问和模型下载</h2>
+
+        <p>
+            本应用可能需要访问互联网，以完成以下操作：
+        </p>
+
+        <ul>
+            <li>下载语音识别模型；</li>
+            <li>下载翻译模型或语言包；</li>
+            <li>获取必要的应用资源或配置；</li>
+            <li>处理应用内购买；</li>
+            <li>加载激励广告或其他广告；</li>
+            <li>检查和获取应用更新；</li>
+            <li>执行用户主动启用的其他联网功能。</li>
+        </ul>
+
+        <p>
+            在网络请求过程中，资源提供商或第三方服务可能自动接收到
+            IP 地址、请求时间、设备类型、操作系统版本、应用版本、
+            网络状态和下载状态等常规技术信息。
+        </p>
+    </section>
+
+    <section>
+        <h2>七、应用权限说明</h2>
+
+        <p>
+            根据用户选择的功能，本应用可能请求以下权限或系统授权：
+        </p>
+
+        <ul>
+            <li>
+                <strong>麦克风权限：</strong>
+                用于采集麦克风输入并生成实时字幕。
+            </li>
+
+            <li>
+                <strong>媒体投屏或音频捕获授权：</strong>
+                用于在用户主动授权后捕获设备播放音频。
+            </li>
+
+            <li>
+                <strong>通知权限：</strong>
+                用于显示前台服务状态、字幕运行状态或必要通知。
+            </li>
+
+            <li>
+                <strong>网络权限：</strong>
+                用于模型下载、语言包下载、购买处理和广告加载。
+            </li>
+
+            <li>
+                <strong>悬浮窗权限：</strong>
+                用于在其他应用界面上方显示实时字幕。
+            </li>
+
+            <li>
+                <strong>前台服务权限：</strong>
+                用于在字幕运行期间保持音频处理服务正常工作。
+            </li>
+
+            <li>
+                <strong>文件或媒体访问权限：</strong>
+                仅在用户主动导入、导出或保存字幕、音频或其他文件时使用。
+            </li>
+        </ul>
+
+        <p>
+            用户可以在 Android 系统设置中随时查看、授予或撤销相关权限。
+            撤销某项权限后，依赖该权限的功能可能无法继续使用。
+        </p>
+    </section>
+
+    <section>
+        <h2>八、第三方服务</h2>
+
+        <p>
+            为实现部分功能，本应用可能使用第三方服务或软件开发工具包。
+        </p>
+
+        <h3>1. Google Play Billing</h3>
+
+        <p>
+            本应用可能使用 Google Play Billing 处理应用内购买、
+            买断权益或其他付费功能。
+        </p>
+
+        <p>
+            支付信息由 Google Play 处理。
+            AVGAIGROUP 不会直接获取用户的完整银行卡号、
+            支付密码或完整支付账户信息。
+        </p>
+
+        <h3>2. Google Mobile Ads</h3>
+
+        <p>
+            本应用可能使用 Google Mobile Ads 展示广告或激励广告。
+        </p>
+
+        <p>
+            广告服务可能处理广告标识符、设备信息、IP 地址、
+            广告展示和互动信息、应用信息、网络信息及用于防止
+            广告欺诈的技术信息。
+        </p>
+
+        <h3>3. Google ML Kit</h3>
+
+        <p>
+            本应用可能使用 Google ML Kit 提供端侧翻译或其他智能功能。
+            部分模型可能需要通过网络下载，并在设备本地执行。
+        </p>
+
+        <h3>4. Google Play 服务</h3>
+
+        <p>
+            本应用可能依赖 Google Play 服务完成应用分发、更新、
+            购买、广告、完整性验证或其他基础功能。
+        </p>
+
+        <p>
+            上述第三方服务将按照其各自的服务条款和隐私政策处理数据。
+            第三方服务独立进行的数据处理行为由相应服务提供方负责。
+        </p>
+    </section>
+
+    <section>
+        <h2>九、数据共享和披露</h2>
+
+        <p>
+            AVGAIGROUP 不会出售用户的个人数据。
+        </p>
+
+        <p>
+            在以下情况下，本应用可能向第三方服务提供必要的信息：
+        </p>
+
+        <ul>
+            <li>为了提供用户主动使用的应用功能；</li>
+            <li>为了完成购买、广告展示、模型下载或语言包下载；</li>
+            <li>为了遵守适用的法律、法规、司法程序或政府要求；</li>
+            <li>为了防止欺诈、滥用、安全威胁或违法行为；</li>
+            <li>为了保护用户、开发者或公众的合法权益和安全。</li>
+        </ul>
+
+        <p>
+            本应用仅在实现相关功能所必要的范围内使用第三方服务。
+        </p>
+    </section>
+
+    <section>
+        <h2>十、数据存储和保留</h2>
+
+        <p>
+            本应用生成的大部分字幕、翻译结果、应用设置和用户偏好
+            保存在用户设备本地。
+        </p>
+
+        <p>
+            本地数据的保留时间取决于用户是否主动保存，
+            以及用户是否清除应用数据、删除本地文件或卸载应用。
+        </p>
+
+        <p>
+            AVGAIGROUP 不会在自有服务器上长期存储
+            本地识别模式下的原始音频。
+        </p>
+
+        <p>
+            第三方服务处理的数据，其保存期限由相应第三方服务提供方
+            根据其自身政策决定。
+        </p>
+    </section>
+
+    <section>
+        <h2>十一、数据删除方式</h2>
+
+        <p>
+            用户可以通过以下方式删除本应用产生或保存的数据：
+        </p>
+
+        <ul>
+            <li>使用应用内提供的删除、清空或重置功能；</li>
+            <li>删除应用导出的字幕、音频或其他本地文件；</li>
+            <li>在 Android 系统设置中清除本应用的数据；</li>
+            <li>卸载本应用。</li>
+        </ul>
+
+        <p>
+            如果相关数据由 Google 或其他第三方服务独立处理，
+            用户可能还需要通过对应第三方服务提供的账户设置、
+            广告设置或隐私控制功能进行管理。
+        </p>
+    </section>
+
+    <section>
+        <h2>十二、数据安全</h2>
+
+        <p>
+            AVGAIGROUP 采取合理的技术和管理措施保护用户数据，
+            尽量减少不必要的数据访问、传输、存储和披露。
+        </p>
+
+        <p>
+            本应用优先采用端侧处理方式，
+            以降低音频和字幕数据通过网络传输所产生的隐私风险。
+        </p>
+
+        <p>
+            但是，任何电子存储和网络传输方式都无法保证绝对安全。
+            因此，我们无法保证数据在任何情况下均不存在安全风险。
+        </p>
+    </section>
+
+    <section>
+        <h2>十三、儿童隐私</h2>
+
+        <p>
+            AI 即刻字幕并非专门面向儿童设计。
+        </p>
+
+        <p>
+            AVGAIGROUP 不会故意要求儿童向开发者提供个人信息。
+        </p>
+
+        <p>
+            如果监护人认为儿童通过本应用提供了不适当的个人信息，
+            可以通过 Google Play 商店中的开发者联系入口与我们联系。
+        </p>
+    </section>
+
+    <section>
+        <h2>十四、跨境数据处理</h2>
+
+        <p>
+            本应用使用的第三方服务可能在用户所在国家或地区之外
+            处理必要的设备、网络、购买、广告或诊断信息。
+        </p>
+
+        <p>
+            具体的数据处理地点、保存期限和保护措施，
+            由相应第三方服务提供方的隐私政策决定。
+        </p>
+    </section>
+
+    <section>
+        <h2>十五、用户的权利</h2>
+
+        <p>
+            根据用户所在国家或地区适用的法律，
+            用户可能享有以下与个人数据有关的权利：
+        </p>
+
+        <ul>
+            <li>了解本应用如何处理相关数据；</li>
+            <li>请求访问与用户有关的数据；</li>
+            <li>请求更正不准确的数据；</li>
+            <li>请求删除相关数据；</li>
+            <li>撤销已经授予的系统权限；</li>
+            <li>限制或反对特定的数据处理行为；</li>
+            <li>向有关监管机构提出投诉。</li>
+        </ul>
+
+        <p>
+            由于本应用的大部分数据保存在用户设备本地，
+            用户通常可以直接通过本应用功能或 Android 系统设置
+            管理和删除这些数据。
+        </p>
+    </section>
+
+    <section>
+        <h2>十六、隐私政策的变更</h2>
+
+        <p>
+            本隐私政策可能根据应用功能、第三方服务、
+            业务模式或适用法律的变化进行更新。
+        </p>
+
+        <p>
+            更新后的隐私政策将在本页面公布，
+            并更新页面顶部的“最近更新日期”。
+        </p>
+
+        <p>
+            如果发生重大变更，我们可能通过应用内通知、
+            弹窗或其他适当方式提醒用户。
+        </p>
+    </section>
+
+    <section>
+        <h2>十七、联系我们</h2>
+
+        <p>
+            如果用户对本隐私政策、数据处理方式或相关权利有任何问题，
+            可以通过 AI 即刻字幕在 Google Play 商店页面中提供的
+            开发者联系入口与我们联系。
+        </p>
+
+        <div class="contact-card">
+            <p>
+                <strong>应用名称：</strong>
+                AI 即刻字幕
+            </p>
+
+            <p>
+                <strong>开发者名称：</strong>
+                AVGAIGROUP
+            </p>
+
+            <p>
+                <strong>联系渠道：</strong>
+                Google Play 商店中的开发者联系入口
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            © 2026 AVGAIGROUP. All rights reserved.
+        </p>
+
+        <p>
+            本隐私政策适用于 AI 即刻字幕。
+        </p>
+    </footer>
+</main>
+</body>
+</html>
